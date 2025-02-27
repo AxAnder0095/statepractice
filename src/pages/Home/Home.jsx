@@ -24,7 +24,6 @@ function Home(){
                     <h3>State Management Practice</h3>
                     <p>Name: {state.name}</p>
                     <p>Age: {state.age}</p>
-                    <p>Count: {state.count}</p>
                     <button onClick={handleClick}>Click to update name and age</button>
                 </div>
             </div>
