@@ -1,9 +1,12 @@
 import Home from "../pages/Home/Home.jsx";
+import './LayoutStyles.css'
 
 function Layout(){
     return (
         <>
-          <Home/>
+            <div>
+                <Home/>
+            </div>
         </>
     )
 }
