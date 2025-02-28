@@ -1,4 +1,4 @@
-import './PageStyles.sass'
+import '../PageStyles.sass'
 
 function ReduxHome(){
     return (
