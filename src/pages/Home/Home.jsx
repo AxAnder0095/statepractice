@@ -14,9 +14,9 @@ function Home(){
         setState({...state, count: state.count + 1})
     }
 
-    function handleSubmit(){
-        console.log(state.firstName)
-    }
+    // function handleSubmit(){
+    //     console.log(state.firstName)
+    // }
 
     // useEffect(() => {
     //     setState({...state, count: state.count + 1})
