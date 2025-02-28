@@ -4,6 +4,13 @@ import {useState} from "react";
 
 function Form(){
     const context = useOutletContext()
+
+    const [inputError, setInputError] = useState({
+        nameError: '',
+        emailError: '',
+        ageError: '',
+        expenseError: 0
+    });
     const [tempData, setTempData] = useState({
         name: '',
         email: '',
@@ -12,8 +19,23 @@ function Form(){
     })
 
     const handleSubmit = (event) => {
+        // if (inputError.nameError) {
+        //
+        // }
+
         context.updateData(tempData)
         event.preventDefault()
+    }
+
+    const handleNameChange = (event) => {
+        setTempData({...tempData, name: event.target.value})
+        console.log(event.target.value)
+        if (!event.target.value){
+            setInputError({...inputError, nameError: 'Must enter a name'})
+        }
+        else{
+            setInputError({...inputError, nameError: ''})
+        }
     }
 
 
@@ -27,8 +49,10 @@ function Form(){
                             className='inputs'
                             type='text'
                             placeholder='name'
-                            onChange={(e) => setTempData({...tempData, name: e.target.value})}
+                            // onChange={(e) => setTempData({...tempData, name: e.target.value})}
+                            onChange={handleNameChange}
                         />
+                        {inputError.nameError && <p className='error'>{inputError.nameError}</p>}
                     </label>
                     <label className='labels'>
                         <p className='m-0'>Enter email address</p>
