@@ -1,12 +1,18 @@
-import Home from "../pages/Home/Home.jsx";
 import './LayoutStyles.sass'
+import Navbar from "../components/Navbar/Navbar.jsx";
+import {Outlet} from "react-router-dom";
 
 function Layout(){
     return (
         <>
-            <div className='container-fluid d-flex align-items-center justify-content-center' id='my-container'>
+            <div className='container-fluid d-flex justify-content-center align-items-center' id='my-container'>
                 <div>
-                    <Home/>
+                    <div>
+                        <Navbar/>
+                    </div>
+                    <div className='' id='home-containers'>
+                        <Outlet/>
+                    </div>
                 </div>
             </div>
         </>
