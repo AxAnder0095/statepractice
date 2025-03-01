@@ -9,7 +9,7 @@ function Form(){
         nameError: '',
         emailError: '',
         ageError: '',
-        expenseError: 0,
+        expenseError: '',
         submitError: ''
     });
 
@@ -21,6 +21,7 @@ function Form(){
     });
 
     const handleNameChange = (event) => {
+        // console.log(event.target)
         const nameRegex = /^[a-zA-Z]$/;
         setTempData({...tempData, name: event.target.value})
         if (!event.target.value){
@@ -56,10 +57,24 @@ function Form(){
             setInputError({...inputError, ageError: ''})
     };
 
+    const handleExpenseChange = (event) => {
+        const expenseRegex = /^[0-9]{1,9}$/;
+        setTempData({...tempData, expense: event.target.value})
+        if (!event.target.value){
+            setInputError({...inputError, expenseError: 'Must enter a number'})
+        }
+        else if (!expenseRegex.test(event.target.value))
+            setInputError({...inputError, expenseError: 'Incorrect number format'})
+        else
+            setInputError({...inputError, expenseError: ''})
+    }
+
     const handleSubmit = (event) => {
-        if (inputError.nameError || inputError.emailError || inputError.ageError) {
+        if (inputError.nameError || inputError.emailError || inputError.ageError || inputError.expenseError) {
             setInputError({...inputError, submitError: 'Incorrect format in one or more fields'})
         }
+        else if (!tempData.name || !tempData.email || !tempData.email || !tempData.age || !tempData.expense)
+            setInputError({...inputError, submitError: 'Please fill the required fields'})
         else
             context.updateData(tempData)
 
@@ -110,13 +125,14 @@ function Form(){
                             className='inputs'
                             type='text'
                             placeholder='amount'
-                            onChange={(e) => setTempData({...tempData, expense: e.target.value})}
+                            onChange={handleExpenseChange}
                         />
+                        {inputError.expenseError && <p className='error'>{inputError.expenseError}</p>}
                     </label>
                     <div className='d-flex justify-content-center mt-1'>
                         <input type="submit" id='submit-button'/>
                     </div>
-                    {inputError.submitError && <p className='error'>{inputError.submitError}</p>}
+                    {inputError.submitError && <p className='error text-center'>{inputError.submitError}</p>}
                 </form>
             </div>
         </div>

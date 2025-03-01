@@ -9,7 +9,7 @@ function Information(){
             <p>Name: {context.budgetData.name}</p>
             <p>Email: {context.budgetData.email}</p>
             <p>Age: {context.budgetData.age}</p>
-            <p>Expense: {context.budgetData.expense}</p>
+            <p>Expense: ${context.budgetData.expense}</p>
         </>
     )
 }
