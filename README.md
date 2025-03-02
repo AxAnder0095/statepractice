@@ -1,8 +1,23 @@
-# React + Vite
+# Project made for practicing basic state management Rexux
+## Program has two home pages
+- React state management with regular useState managment 
+- Redux state management with configured redux store and reducers
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Both pages use a form with input validation to change the state of the data
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Dependencies 
+
+```json
+{
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.6.0",
+    "@types/react-redux": "^7.1.34",
+    "bootstrap": "^5.3.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.2.0"
+  }
+}
+```
