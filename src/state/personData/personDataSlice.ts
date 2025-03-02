@@ -20,10 +20,16 @@ const personalDataSlice = createSlice({
     reducers: {
         setName: (state, action) => {
             state.name = action.payload;
+        },
+        setAll: (state, action) => {
+            state.name = action.payload.name;
+            state.email = action.payload.email;
+            state.age = action.payload.age;
+            state.expense = action.payload.expense;
         }
     },
 });
 
-export const {setName} = personalDataSlice.actions;
+export const {setName, setAll} = personalDataSlice.actions;
 
 export default personalDataSlice.reducer;
